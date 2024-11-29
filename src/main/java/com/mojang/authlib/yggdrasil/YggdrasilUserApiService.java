@@ -62,7 +62,8 @@ public class YggdrasilUserApiService implements UserApiService {
    }
 
    public KeyPairResponse getKeyPair() {
-      return (KeyPairResponse)this.minecraftClient.post(this.routeKeyPair, KeyPairResponse.class);
+      return null;
+      //return (KeyPairResponse)this.minecraftClient.post(this.routeKeyPair, KeyPairResponse.class);
    }
 
    public boolean isBlockedPlayer(UUID playerID) {
@@ -97,6 +98,8 @@ public class YggdrasilUserApiService implements UserApiService {
    }
 
    private Set<UUID> forceFetchBlockList() {
+      return null;
+      /*
       this.nextAcceptableBlockRequest = Instant.now().plusSeconds(120L);
 
       try {
@@ -107,9 +110,13 @@ public class YggdrasilUserApiService implements UserApiService {
       } catch (MinecraftClientException var3) {
          return null;
       }
+
+       */
    }
 
    private void fetchProperties() throws AuthenticationException {
+      /*
+
       try {
          UserAttributesResponse response = (UserAttributesResponse)this.minecraftClient.get(this.routePrivileges, UserAttributesResponse.class);
          Builder<UserApiService.UserFlag> flags = ImmutableSet.builder();
@@ -139,6 +146,8 @@ public class YggdrasilUserApiService implements UserApiService {
       } catch (MinecraftClientException var7) {
       }
 
+       */
+
    }
 
    private static void addFlagIfUserHasPrivilege(boolean privilege, UserApiService.UserFlag value, Builder<UserApiService.UserFlag> output) {
@@ -149,7 +158,7 @@ public class YggdrasilUserApiService implements UserApiService {
    }
 
    public void reportAbuse(AbuseReportRequest request) {
-      this.minecraftClient.post(this.routeAbuseReport, request, Response.class);
+      //this.minecraftClient.post(this.routeAbuseReport, request, Response.class);
    }
 
    public boolean canSendReports() {
